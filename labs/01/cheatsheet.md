@@ -1,16 +1,17 @@
 # Markdown Cheat Sheet
+*This cheat sheet will keep growing over the semester.*
 
 ## Table of contents
 
 - [1. Text](#text)
-- [Lists](#lists)
-- [Links and images](#links-and-images)
-- [Code](#code)
-- [Quotes](#quotes)
-- [Tables](#tables)
-- [Layout](#layout)
-- [GitHub extras](#github-extras)
-- [Pitfalls](#pitfalls)
+- [2. Lists](#lists)
+- [3. Links and images](#links-and-images)
+- [4. Code](#code)
+- [5. Quotes](#quotes)
+- [6. Tables](#tables)
+- [7. Layout](#layout)
+- [8. GitHub extras](#github-extras)
+- [9. Pitfalls](#pitfalls)
 
 ## 1. Text
 ### 1.1. Headings (CommonMark)
@@ -74,3 +75,17 @@ Syntax:
 ```
 Output:\
 \*not italic\*
+
+<!-- 
+Lists: unordered, ordered and nested lists · task lists
+Links and images:	inline and reference-style links · a relative link to another file in your repository · a link to a section · an image with alt text · an image that is a link
+Code:	fenced code blocks with syntax highlighting for Python, Bash and JSON
+Quotes:	blockquotes, nested and with formatting · alerts, like the boxes in this lab
+Tables:	a table with aligned columns, and a cell that contains a link or a |
+Layout:	horizontal rules · collapsed sections, like the hints in this lab · comments that do not render
+GitHub extras:	footnotes · emoji shortcodes · @mentions and references to issues · a Mermaid diagram · a formula
+-->
+
+## 9. Pitfalls
+1. **Headings:** I wrote `#Heading` without a space and it stayed plain text with a visible `#`.\
+   Fix: a space between `#` and the text (`# Heading`).
