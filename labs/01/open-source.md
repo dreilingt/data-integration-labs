@@ -27,9 +27,15 @@ Find through *Insights → Community standards*
 Total number of **Contributors** (on 29.10.2026) is 3883 people (the main repo page -> the right-hand sidebar -> Contributors).
 
 According to the [pandas maintenance](https://pandas.pydata.org/docs/development/maintaining.html) guide,
-pandas has two permission levels: triage and core. Anyone can review a pull request, but only core-team members can merge it. A pull request with an active discussion or a `-1` from a core maintainer should not be merged, and larger changes should get a +1 from at least two core members.
-
+pandas has two permission levels: triage and core. Anyone can review a pull request, but only core-team members can merge it. A pull request with an active discussion or a `-1` from a core maintainer should not be merged, and larger changes should get a `+1` from at least two core members.
 
 ### 5. Money
+
+**Sponsors**
+1. NumFOCUS -- a 501(c)(3) nonprofit charity in the United States, provides pandas with fiscal, legal, and administrative support to help ensure the health and sustainability of the project.
+2. Tidelift
+3. Bodo -- Bodo's parallel computing platform uses pandas API, and Bodo financially supports pandas development to help improve pandas, in particular the pandas API.
+4. Indeed -- an in-kind sponsor (organization that supports pandas development with goods or services).
+
 ### 6. Activity
 ### 7. Your way in
