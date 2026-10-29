@@ -44,4 +44,11 @@ On the website it is stated that individual donations are appreciated. These don
 Everyone can do a donation in the [donate page](https://opencollective.com/pandas).
 
 ### 6. Activity
+
+The latest release is [pandas 3.1.0](https://github.com/pandas-dev/pandas/releases) published on 22.10.2026.\
+There are 1792 open [issues](https://github.com/pandas-dev/pandas/issues) (26856 issues are already solved).\
+There are 302 open [pull requests](https://github.com/pandas-dev/pandas/pulls) (39111 issues are already sorted).
+
 ### 7. Your way in
+
+
