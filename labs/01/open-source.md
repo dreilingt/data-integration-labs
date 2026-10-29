@@ -24,6 +24,12 @@ Find through *Insights → Community standards*
 [CODE_OF_CONDUCT](https://github.com/pandas-dev/.github/blob/master/CODE_OF_CONDUCT.md)
 
 ### 4. People
+Total number of **Contributors** (on 29.10.2026) is 3883 people (the main repo page -> the right-hand sidebar -> Contributors).
+
+According to the [pandas maintenance](https://pandas.pydata.org/docs/development/maintaining.html) guide,
+pandas has two permission levels: triage and core. Anyone can review a pull request, but only core-team members can merge it. A pull request with an active discussion or a `-1` from a core maintainer should not be merged, and larger changes should get a +1 from at least two core members.
+
+
 ### 5. Money
 ### 6. Activity
 ### 7. Your way in
