@@ -31,11 +31,17 @@ pandas has two permission levels: triage and core. Anyone can review a pull requ
 
 ### 5. Money
 
-**Sponsors**
+#### [Sponsors](https://pandas.pydata.org/about/sponsors.html)
 1. NumFOCUS -- a 501(c)(3) nonprofit charity in the United States, provides pandas with fiscal, legal, and administrative support to help ensure the health and sustainability of the project.
-2. Tidelift
-3. Bodo -- Bodo's parallel computing platform uses pandas API, and Bodo financially supports pandas development to help improve pandas, in particular the pandas API.
-4. Indeed -- an in-kind sponsor (organization that supports pandas development with goods or services).
+2. Nvidia -- an institutional partner (supports the project by employing contributors)
+3. Tidelift
+4. Bodo -- Bodo's parallel computing platform uses pandas API, and Bodo financially supports pandas development to help improve pandas, in particular the pandas API.
+5. Indeed -- an in-kind sponsor (organization that supports pandas development with goods or services).
+
+#### [Donations](https://pandas.pydata.org/contribute.html)
+On the website it is stated that individual donations are appreciated. These donations are used for things like the project infrastructure, travel expenses for our volunteer contributors to attend the in-person sprints, or to give small grants to develop features.
+
+Everyone can do a donation in the [donate page](https://opencollective.com/pandas).
 
 ### 6. Activity
 ### 7. Your way in
