@@ -51,4 +51,5 @@ There are 302 open [pull requests](https://github.com/pandas-dev/pandas/pulls) (
 
 ### 7. Your way in
 
-
+According to the [contributing guide](https://pandas.pydata.org/docs/development/contributing.html), pandas uses a forking workflow. A contributor forks the repository, makes the changes on a separate branch, pushes them to the fork and opens a pull request
+with the `Compare & pull request` button. The pull request title must start with a prefix such as `ENH`, `BUG` or `DOC`, and the checklist in the pull request template has to be filled in. The change must follow the [contribution guidelines](https://pandas.pydata.org/docs/development/contributing_codebase.html#contributing-codebase). Then it is reviewed, updated if needed, and merged by a core-team member.
