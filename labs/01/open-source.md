@@ -1,10 +1,10 @@
 Project from a course stack: **pandas**
 ([Repository](https://github.com/pandas-dev/pandas))
 
-### 1. Licence
+### 1. License
 **BSD 3-Clause**
 ([source](https://github.com/pandas-dev/pandas/blob/main/LICENSE)).
-It is a permissive licence: redistribution and use in source and binary forms, with or without
+It is a permissive license: redistribution and use in source and binary forms, with or without
 modification.
 
 If I copy code from pandas into my own project, I must:
@@ -18,10 +18,10 @@ If I copy code from pandas into my own project, I must:
 ### 3. Community files 
 Find through *Insights → Community standards*
 
-([README](https://github.com/pandas-dev/pandas/blob/main/README.md)
-([LICENSE](https://github.com/pandas-dev/pandas/blob/main/LICENSE)
-([CONTRIBUTING](https://github.com/pandas-dev/.github/blob/master/CONTRIBUTING.md))
-([CODE_OF_CONDUCT](https://github.com/pandas-dev/.github/blob/master/CODE_OF_CONDUCT.md)
+[README](https://github.com/pandas-dev/pandas/blob/main/README.md)\
+[LICENSE](https://github.com/pandas-dev/pandas/blob/main/LICENSE)\
+[CONTRIBUTING](https://github.com/pandas-dev/.github/blob/master/CONTRIBUTING.md)\
+[CODE_OF_CONDUCT](https://github.com/pandas-dev/.github/blob/master/CODE_OF_CONDUCT.md)
 
 ### 4. People
 ### 5. Money
