@@ -10,8 +10,9 @@ CC13-09421 Besuch von Kino, Theater, Konzert, Zirkus u.Ä.
 | Google Dataset Search | `music concert ticket` `Freizeit Kultur Preise`|
 
 ### 5.2. Search like a machine
-`https://www.govdata.de/ckan/api/3/action/package_search?q=konzert&rows=1`\
-Received:
+`https://www.govdata.de/ckan/api/3/action/package_search?q=konzert&rows=1`
+
+Received:\
 `"count": 24`\
 `"title": "Selbstständige Konzertorchester, Mitglieder, Konzerte undBesuche - Land - Spielzeit"`\
 `"license_id": ""`\
