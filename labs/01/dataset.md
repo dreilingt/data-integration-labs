@@ -59,3 +59,23 @@ Statistics over the 141 monthly values (Jan 2015-Sep 2026), index point (2020 = 
 - Placeholders: `...` means "Angabe fällt später an" (value will follow).
 - Labels: leading spaces encode the hierarchy (CC13-09 > 094 > 0942 > 09421).
 - No totals row, but nested aggregates: CC13-09 (Freizeit, Unterhaltung und Kultur) is the parent of the other three rows. Index values must not be summed.
+
+### 4. Data dictionary
+
+The file is wide, therefore after reshaping to long format, five columns would be:
+
+| Name | Meaning | Type, unit | Example |
+|---|---|---|---|
+|series_code|COICOP code of the consumption category|string|CC13-09421|
+|series_label|Name of the category (leading spaces show the hierarchy level)|string|Besuch von Kino, Theater, Konzert, Zirkus u.Ä.|
+|year|Reference year (header row)|integer|2015|
+|month|Reference month (header row)|string (convert to 1-12)|Januar|
+|cpi_value|Consumer price index|decimal|91,5|
+
+**Documentation**: the CSV itself documents the title and the number of the table, the series, the Dec 2024 footnote and the copyright.
+
+### 5. License and Attribution line (TASL)
+
+
+### 6. People
+The dataset contains *no personal data*. It is a monthly national price index, aggregated over all of Germany, with no individuals, households or small groups, therefore nothing needs to be minimised for this dataset.
