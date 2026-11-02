@@ -55,7 +55,7 @@ Statistics over the 141 monthly values (Jan 2015-Sep 2026), index point (2020 = 
 **Odd things**:
 
 - Wide format with metadata: 8 title and header rows before the data, no single header row. Year and month are in two header rows, and each is repeated twice per month (once for the value, once for the flag).
-- Flag column has no header: flags are `e` (meaning "endgültiger Wert" according to GENESIS Zeichenerklärung (Sign Explanation)), `()` (11 values: Apr–Jun 2020 and Nov 2020-Jun 2021 meaning "Aussagewert eingeschränkt, da der Zahlenwert statistisch relativ unsicher ist") and empty cells next to `...` placeholders.
+- Flag column has no header: flags are `e` (meaning "endgültiger Wert" according to GENESIS Zeichenerklärung (Sign Explanation)), `()` (11 values: Apr-Jun 2020 and Nov 2020-Jun 2021 meaning "Aussagewert eingeschränkt, da der Zahlenwert statistisch relativ unsicher ist") and empty cells next to `...` placeholders.
 - Placeholders: `...` means "Angabe fällt später an" (value will follow).
 - Labels: leading spaces encode the hierarchy (CC13-09 > 094 > 0942 > 09421).
 - No totals row, but nested aggregates: CC13-09 (Freizeit, Unterhaltung und Kultur) is the parent of the other three rows. Index values must not be summed.
