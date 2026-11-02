@@ -12,7 +12,8 @@ This repository collects my lab work for the Data Integration course.
 
 | Lab | Topic | Folder |
 |-----|-------|--------|
-| 01 | Markdown | [labs/01/](labs/01/) |
+| 01 | Open Data, Data Profile | [labs/01/](labs/01/) |
+| 02 | Command Line Interface | [labs/02/](labs/02/) |
 
 ## AI usage
 
