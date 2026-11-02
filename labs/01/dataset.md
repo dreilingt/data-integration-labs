@@ -27,7 +27,7 @@ Received:\
 | Publisher | Statistisches Bundesamt (Destatis), GENESIS-Online |
 | Link / identifier | https://genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0004 · table 61111-0004 · series code CC13-09421 |
 | Formats | CSV (downloaded); XLSX; CSV (Flat) |
-| Size | 1 file, 110 KB; 4 series (rows), 290 columns (2 label columns + 144 months × 2: value and flag) |
+| Size | 1 file, 9,63 KB; 4 series (rows), 290 columns (2 label columns + 144 months × 2: value and flag) |
 | Coverage Period* | Header: Jan 2015-Dec 2026 (144 months). Values: Jan 2015-Sep 2026 (141 months). Oct-Dec 2026 are marked as `...` (not yet available). |
 | Coverage Area | Germany (national), no regional breakdown |
 | Granularity | Monthly, price index (2020 = 100). Concerts are not separated from cinema, theatre and circus |
