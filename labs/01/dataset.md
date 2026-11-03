@@ -28,17 +28,17 @@ Received:\
 | Link / identifier | https://genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0004 · table 61111-0004 · series code CC13-09421 |
 | Formats | CSV (downloaded); XLSX; CSV (Flat) |
 | Size | 1 file, 9,63 KB; 4 series (rows), 290 columns (2 label columns + 144 months × 2: value and flag) |
-| Coverage Period* | Header: Jan 2015-Dec 2026 (144 months). Values: Jan 2015-Sep 2026 (141 months). Oct-Dec 2026 are marked as `...` (not yet available). |
+| Coverage Period* | Header: Jan 2015-Dec 2026 (144 months). Actual observations are available from Jan 2015 to Sep 2026 (141 months). Oct–Dec 2026 are marked as `...` (data not yet available) |
 | Coverage Area | Germany (national), no regional breakdown |
 | Granularity | Monthly, price index (2020 = 100). Concerts are not separated from cinema, theatre and circus |
-| Last update | File status ("Stand"): 02.11.2026, 15:29:45 (export time). Latest value: Sep 2026. Frequency: monthly (inferred from the series) |
+| Last update | File export timestamp: 02.11.2026, 15:29:45. Latest value: Sep 2026. Frequency: monthly (inferred from the series) |
 | Licence | Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0), [stated](https://www.destatis.de/DE/Service/Impressum/copyright-genesis-online.html) by Destatis for GENESIS-Online |
 
 \* *Destatis allows to select a period between 1991 and 2026*
 
 ### 2. Stars (5-star scheme)
 ★★★ Open format (CSV, can be used without proprietary software)
-Missing for the 4th star: URIs (Uniform Resource Identifier)
+Missing for the 4th star and the 5th star: URIs to identify entities within the data and links to other datasets
 
 ### 3. Open the data
 The downloaded file was opened in Microsoft Excel 365, file origin - UTF-8, delimiter - semicolon.
@@ -62,15 +62,16 @@ Statistics over the 141 monthly values (Jan 2015-Sep 2026), index point (2020 = 
 
 ### 4. Data dictionary
 
-The file is wide, therefore after reshaping to long format, five columns would be:
+The original CSV uses a wide format. The following data dictionary describes the proposed structure after reshaping the data into long format.
 
 | Name | Meaning | Type, unit | Example |
 |---|---|---|---|
-|series_code|COICOP code of the consumption category|string|CC13-09421|
-|series_label|Name of the category (leading spaces show the hierarchy level)|string|Besuch von Kino, Theater, Konzert, Zirkus u.Ä.|
-|year|Reference year (header row)|integer|2015|
-|month|Reference month (header row)|string (convert to 1-12)|Januar|
-|cpi_value|Consumer price index|decimal|91,5|
+| series_code | COICOP code of the consumption category | string | CC13-09421 |
+| series_label | Name of the category (leading spaces show the hierarchy level) | string | Besuch von Kino, Theater, Konzert, Zirkus u.Ä. |
+| year | Reference year (header row) | integer | 2015 |
+| month | Reference month (header row) | string (convert to 1-12) | Januar |
+| cpi_value | Consumer price index | decimal | 91,5 |
+| flag | Additional status or quality information for the value | string | e
 
 **Documentation**: the CSV itself documents the title and the number of the table, the series, the Dec 2024 footnote and the copyright.
 
@@ -92,16 +93,16 @@ The dataset contains *no personal data*. It is a monthly national price index, a
 
 | Principle | Rating | Evidence |
 |---|---|---|
-|F1|~|A stable URL, and table code `61111-0004`, but no DOI. The values are updated monthly under the same URL, with no version identifier. Two unique identifiers assigned in the catalogues: registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000 (DGI-DE) and data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000|
-|F2|~|The dataset has a title, classification, unit (Verbraucherpreisindex (2020=100)), copyright line and "Stand" date, but has no description text and no keywords|
-|F4|✓|Listed on [data.europa.eu](data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000), harvested from the GDI-DE catalogue. Also searchable by table code `61111-0004` in GENESIS-Online itself|
-|A1|✓|Datasets from [GENESIS-Online](https://www.destatis.de/EN/Service/OpenData/api-webservice.html) "can be used free of charge and without registering", and all users get the same data. Tables can be both viewed by using the web interface and be downloaded from there|
-|I1|✓|CSV, UTF-8. Destatis also offers other formats, such as XLSX and CSV (Flat)|
-|I2, I3|~|Categories use a classification code (based on COICOP 2018, 2-5-digit hierarchy). Dates are German month names plus a year (Januar, 2015), not ISO 8601. The area is set in the text form in the title of the dataset ("Deutschland"), ISO 3166 code is not used. There are no links to related data or sources inside the file|
-|R1|✗|No column dictionary in the file, flags are explained separately on the website. A user should read an additional [PDF-file](https://www.destatis.de/DE/Methoden/Qualitaet/Qualitaetsberichte/Preise/einfuehrung.html) (Verbraucherpreisindizes -> Verbraucherpreisindex für Deutschland) to find out about the method.|
-|R1.1|✓|Clear: [Data licence Germany – attribution – version 2.0](destatis.de/EN/Service/Legal-Notice/CopyrightGENESISOnlineDatabase.html). Machine-readable: the [DCAT](https://data.europa.eu/api/hub/repo/distributions/fd24c79f-ff13-43bd-97bb-890c044b093b.jsonld) record has a `dct:license` field (a `LicenseDocument` labelled “…Datenlizenz by-2-0”).|
-|R1.2|~|Original data from the primary publisher (Statistisches Bundesamt), not a copy. The downloaded CSV-file has a "Stand" timestamp (02.11.2026). [The record's provenance text](https://gdk.gdi-de.org/gdi-de/srv/eng/csw?Service=CSW&version=2.0.2&Request=GetRecords&resultType=results&elementSetName=full&outputFormat=application/xml&OutputSchema=http://www.isotc211.org/2005/gmd&typeNames=csw:Record&startPosition=1&maxRecords=1&typeNames=csw:Record&elementSetName=full&ConstraintLanguage=CQL_TEXT&constraint_language_version=1.1.0&constraint=csw:ResourceIdentifier=%27https://registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000%27) only says that Destatis checks the data and gives no guarantee. The file has no revision history.|
-|R1.3|✓|The metadata is a [DCAT distribution record](https://data.europa.eu/api/hub/repo/distributions/fd24c79f-ff13-43bd-97bb-890c044b093b.jsonld) with INSPIRE code lists (`accessRights`), and the dataset record [states](https://gdk.gdi-de.org/gdi-de/srv/eng/csw?Service=CSW&version=2.0.2&Request=GetRecords&resultType=results&elementSetName=full&outputFormat=application/xml&OutputSchema=http://www.isotc211.org/2005/gmd&typeNames=csw:Record&startPosition=1&maxRecords=1&typeNames=csw:Record&elementSetName=full&ConstraintLanguage=CQL_TEXT&constraint_language_version=1.1.0&constraint=csw:ResourceIdentifier=%27https://registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000%27) conformance to Regulation (EU) No 1089/2010 (INSPIRE)|
+| F1 | ~ | A stable URL, and table code `61111-0004`, but no DOI. The values are updated under the same table URL, with no version identifier. Also two identifiers assigned in the catalogues: [GDI-DE](registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000) and [data.europa.eu](data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000)|
+| F2 | ~ | The dataset has a title, classification, unit (Verbraucherpreisindex (2020=100)), copyright line and "Stand" date, but has no description text and no keywords |
+| F4 | ✓ | Listed on [data.europa.eu](data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000), harvested from the GDI-DE catalogue. Also searchable by table code `61111-0004` in GENESIS-Online itself |
+| A1 | ✓ | Datasets from [GENESIS-Online](https://www.destatis.de/EN/Service/OpenData/api-webservice.html) "can be used free of charge and without registering", and all users get the same data. Tables can be both viewed by using the web interface and be downloaded from there |
+| I1 | ✓ | CSV, UTF-8. Destatis also offers other formats, such as XLSX and CSV (Flat) |
+| I2, I3 | ~ |Categories use a classification code (based on COICOP 2018, 2-5-digit hierarchy). Dates are German month names plus a year (Januar, 2015), not ISO 8601. The area is set in the text form in the title of the dataset ("Deutschland"), ISO 3166 code is not used. There are no links to related data or sources inside the file |
+| R1 | ✗ |No column dictionary in the file, flags are explained separately on the website. A user should read an additional [PDF-file](https://www.destatis.de/DE/Methoden/Qualitaet/Qualitaetsberichte/Preise/einfuehrung.html) (Verbraucherpreisindizes -> Verbraucherpreisindex für Deutschland) to find out about the method |
+| R1.1 | ✓ | Clear: [Data licence Germany – attribution – version 2.0](destatis.de/EN/Service/Legal-Notice/CopyrightGENESISOnlineDatabase.html). Machine-readable: the [DCAT](https://data.europa.eu/api/hub/repo/distributions/fd24c79f-ff13-43bd-97bb-890c044b093b.jsonld) record has a `dct:license` field (a `LicenseDocument` labelled “…Datenlizenz by-2-0”). |
+| R1.2 | ~ | Original data from the primary publisher (Statistisches Bundesamt), not a copy. The downloaded CSV-file has a "Stand" timestamp (02.11.2026). [The record's provenance text](https://gdk.gdi-de.org/gdi-de/srv/eng/csw?Service=CSW&version=2.0.2&Request=GetRecords&resultType=results&elementSetName=full&outputFormat=application/xml&OutputSchema=http://www.isotc211.org/2005/gmd&typeNames=csw:Record&startPosition=1&maxRecords=1&typeNames=csw:Record&elementSetName=full&ConstraintLanguage=CQL_TEXT&constraint_language_version=1.1.0&constraint=csw:ResourceIdentifier=%27https://registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000%27) only says that Destatis checks the data and gives no guarantee. The file has no revision history. |
+| R1.3 | ~ | The dataset record [states](https://gdk.gdi-de.org/gdi-de/srv/eng/csw?Service=CSW&version=2.0.2&Request=GetRecords&resultType=results&elementSetName=full&outputFormat=application/xml&OutputSchema=http://www.isotc211.org/2005/gmd&typeNames=csw:Record&startPosition=1&maxRecords=1&typeNames=csw:Record&elementSetName=full&ConstraintLanguage=CQL_TEXT&constraint_language_version=1.1.0&constraint=csw:ResourceIdentifier=%27https://registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000%27) conformance to Regulation (EU) No 1089/2010 (INSPIRE) |
 
 The chosen dataset is **open**: the licence dl-de/by-2-0 allows free reuse and modification with attribution, and the data is free to download as CSV. It is also **FAIR, but with limitations**. Although the dataset has persistent identifiers, a catalogue record, open access and a licence in the metadata, the downloaded CSV-file has no ISO 8601 dates or ISO 3166 codes, no data dictionary and no links to sources.
 
@@ -109,3 +110,59 @@ The chosen dataset is **open**: the licence dl-de/by-2-0 allows free reuse and m
 - Publish a dataset with an identifier
 - Use standard codes: ISO 8601 dates, ISO 3166 country codes, if it is relevant for a final dataset
 - Provide all the documentation including data dictionary
+
+## What to combine the chosen dataset with
+
+**Second source: [Wikimedia Pageviews API]**(https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/documentation/) – pageview statistics for individual Wikipedia articles
+
+The API provides the number of views for individual Wikipedia articles over time. I plan to use the German Wikipedia articles (e.g. "Konzert", "Kino", "Theater", "Zirkus") as an indicator of public online attention to different cultural activities.
+
+The data can be retrieved in [JSON format](https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/documentation/getting-started.html) and aggregated monthly. 
+
+Sample of the API-query:
+> https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/de.wikipedia.org/all-access/user/Konzert/monthly/2015070100/2026100100
+
+The API data is available under the [**CC0 1.0 licence**](https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/documentation/access-policy.html).
+
+### Shared key 
+
+Both sources contain a time dimension. The shared key will be the year and month.
+
+| Source | Original date format | After cleaning |
+|---|---|---|
+| Destatis VPI | Year and month in separate header rows (e.g. `Januar`, `2015`) | 2015-01 |
+| Wikimedia Pageviews API | Timestamp (e.g. `2015010100`) | 2015-01 |
+
+The Wikimedia data will be requested with monthly granularity. The month will be converted to ISO 8601 format (`YYYY-MM`) to match the Destatis data.
+
+**Important**: The common observation period starts in July 2015 because the Wikimedia Pageviews API provides data only from 1 July 2015. Therefore the first six months of the Destatis dataset (January–June 2015) will be excluded from the joined dataset.
+
+### Granularity
+
+Destatis dataset contains monthly national price indices for Germany. The Wikimedia API can provide monthly pageview counts. Therefore the time granularity matches after selecting monthly data.
+
+One limitation is that views of the German Wikipedia are not necessarily views by people located in Germany. They represent attention to the German-language Wikipedia article, not exclusively German users.
+
+### Research questions
+
+1. Are changes in online attention to different cultural activities (concerts, cinema, theatre and circus) associated with changes in the consumer price index for cultural events in Germany?
+2. Do changes in online attention to different cultural activities occur before, at the same time as, or after changes in the consumer price index for cultural events in Germany?
+
+### Licences
+
+The Destatis dataset is published under the **Datenlizenz Deutschland – Namensnennung – Version 2.0** licence. The Wikimedia Pageviews API data is available under **CC0 1.0**.
+
+The datasets can be combined and the resulting dataset can be published, provided that the Destatis attribution requirements are followed. This includes naming Destatis as the source, linking to the original dataset and licence, and indicating any modifications made to the original data. The Wikimedia data is available under CC0 and does not require attribution.
+
+### Next steps
+
+1. Download the Destatis CSV file.
+2. Request monthly pageview data for the German Wikipedia articles "Konzert", "Kino", "Theater", "Zirkus" through the Wikimedia API.
+3. Extract the timestamp and pageview count from the JSON response.
+4. Convert both date columns to the `YYYY-MM` format.
+5. Check for missing months and align the date ranges.
+6. Join both datasets using the year and month.
+
+### Verdict
+
+This combination of datasets could be used because both sources are openly accessible and provide monthly time series which can be used as a shared key. The biggest risk is that Wikipedia pageviews are only an indirect indicator of public interest in concerts, cinema etc. and do not directly measure interest in buying tickets. In addition, the German-language Wikipedia audience is not limited to Germany.
