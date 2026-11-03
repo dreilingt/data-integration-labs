@@ -14,7 +14,16 @@ If I copy code from pandas into my own project, I must:
 3. not use the names of the copyright holders or contributors to endorse or
    promote my product without written permission.
 
-### 2. What machines see - to be added
+### 2. What machines see 
+`https://api.github.com/repos/pandas-dev/pandas` -> `"spdx_id": "BSD-3-Clause"`\
+The repository has a `LICENSE` file, so a machine can read the licence type directly.
+
+`https://api.github.com/repos/dreilingt/data-integration-labs` -> `"spdx_id": "MIT"`\
+My `LICENSE` file comes from GitHub's MIT template, so GitHub matches it and reports `MIT`.
+
+`https://api.github.com/repos/owid/co2-data` -> not found via search for "spdx_id", but found `"license": null`
+GitHub finds no licence file, so there is no `spdx_id` to read. the licence is mentioned only in the [README](https://github.com/owid/co2-data/blob/master/README.md), which people understand but machines do not.
+
 ### 3. Community files 
 Find through *Insights → Community standards*
 
