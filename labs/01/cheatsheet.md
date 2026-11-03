@@ -66,7 +66,6 @@ Output:\
 Run `python src/clean.py` first.
 
 ### 1.6. Escaping a character (CommonMark)
-
 A backslash in front of a special character shows it as plain text.
 
 Syntax:
@@ -76,9 +75,75 @@ Syntax:
 Output:\
 \*not italic\*
 
+## 2. Lists
+### 2.1. Unordered, ordered and nested lists (CommonMark)
+`-` makes a bullet, `1.` — a numbered item. Indent an item to nest it.
+
+Syntax:
+````markdown
+- apples
+- pears
+  - green
+  - yellow
+
+1. first
+2. second
+   1. nested step
+````
+Output:
+- apples
+- pears
+  - green
+  - yellow
+
+1. first
+2. second
+   1. nested step
+
+### 2.2. Task Lists (GitHub)
+`- [ ]` is an open task, `- [x]` a finished one.
+
+Syntax:
+````markdown
+- [x] create the repository
+- [ ] add README
+````
+Output:
+- [x] create the repository
+- [ ] add README
+
+## 3. Links and images
+### 3.1. Inline and reference-style links (CommonMark)
+An **inline link** puts the URL in brackets right after the text. 
+
+Syntax:
+````markdown
+[course repository](https://github.com/breuert/data-integration)
+````
+Output:\
+[course repository](https://github.com/breuert/data-integration)
+
+**Reference-style links** allow to separate the link text from the URL, making Markdown documents cleaner and easier to read.
+
+Syntax:
+````markdown
+The CPI data was retrieved from [Destatis][destatis].
+The Pageviews data was collected using the [Wikimedia API][wikimedia].
+
+[destatis]: https://www.destatis.de/
+[wikimedia]: https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/
+````
+Output:\
+The CPI data was retrieved from [Destatis][destatis].\
+The Pageviews data was collected using the [Wikimedia API][wikimedia].
+
+[destatis]: https://www.destatis.de/
+[wikimedia]: https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/
+
+Here \[destatis], \[wikimedia] are URL identifiers.
+
 <!-- 
-Lists: unordered, ordered and nested lists · task lists
-Links and images:	inline and reference-style links · a relative link to another file in your repository · a link to a section · an image with alt text · an image that is a link
+Links and images: · a relative link to another file in your repository · a link to a section · an image with alt text · an image that is a link
 Code:	fenced code blocks with syntax highlighting for Python, Bash and JSON
 Quotes:	blockquotes, nested and with formatting · alerts, like the boxes in this lab
 Tables:	a table with aligned columns, and a cell that contains a link or a |
