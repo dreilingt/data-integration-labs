@@ -1,5 +1,5 @@
 ## Dataset: [Verbraucherpreisindex: Deutschland, Monate, Klassifikation der Verwendungszwecke des Individualkonsums](https://genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0004) 
-CC13-09421 Besuch von Kino, Theater, Konzert, Zirkus u.Ä.
+with the series code CC13-09421 Besuch von Kino, Theater, Konzert, Zirkus u.Ä.
 
 ### 5.1. Search for Data
 | Where | What |
@@ -34,7 +34,7 @@ Received:\
 | Last update | File status ("Stand"): 02.11.2026, 15:29:45 (export time). Latest value: Sep 2026. Frequency: monthly (inferred from the series) |
 | Licence | Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0), [stated](https://www.destatis.de/DE/Service/Impressum/copyright-genesis-online.html) by Destatis for GENESIS-Online |
 
-\* *DESTATIS allows to select a period between 1991 and 2026*
+\* *Destatis allows to select a period between 1991 and 2026*
 
 ### 2. Stars (5-star scheme)
 ★★★ Open format (CSV, can be used without proprietary software)
@@ -87,3 +87,25 @@ The file is wide, therefore after reshaping to long format, five columns would b
 
 ### 6. People
 The dataset contains *no personal data*. It is a monthly national price index, aggregated over all of Germany, with no individuals, households or small groups, therefore nothing needs to be minimised for this dataset.
+
+## Dataset Review with the FAIR principles
+
+| Principle | Rating | Evidence |
+|---|---|---|
+|F1|~|A stable URL, and table code `61111-0004`, but no DOI. The values are updated monthly under the same URL, with no version identifier. Two unique identifiers assigned in the catalogues: registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000 (DGI-DE) and data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000|
+|F2|~|The dataset has a title, classification, unit (Verbraucherpreisindex (2020=100)), copyright line and "Stand" date, but has no description text and no keywords|
+|F4|✓|Listed on [data.europa.eu](data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000), harvested from the GDI-DE catalogue. Also searchable by table code `61111-0004` in GENESIS-Online itself|
+|A1|✓|Datasets from [GENESIS-Online](https://www.destatis.de/EN/Service/OpenData/api-webservice.html) "can be used free of charge and without registering", and all users get the same data. Tables can be both viewed by using the web interface and be downloaded from there|
+|I1|✓|CSV, UTF-8. Destatis also offers other formats, such as XLSX and CSV (Flat)|
+|I2, I3|~|Categories use a classification code (based on COICOP 2018, 2-5-digit hierarchy). Dates are German month names plus a year (Januar, 2015), not ISO 8601. The area is set in the text form in the title of the dataset ("Deutschland"), ISO 3166 code is not used. There are no links to related data or sources inside the file|
+|R1|✗|No column dictionary in the file, flags are explained separately on the website. A user should read an additional [PDF-file](https://www.destatis.de/DE/Methoden/Qualitaet/Qualitaetsberichte/Preise/einfuehrung.html) (Verbraucherpreisindizes -> Verbraucherpreisindex für Deutschland) to find out about the method.|
+|R1.1|✓|Clear: [Data licence Germany – attribution – version 2.0](destatis.de/EN/Service/Legal-Notice/CopyrightGENESISOnlineDatabase.html). Machine-readable: the [DCAT](https://data.europa.eu/api/hub/repo/distributions/fd24c79f-ff13-43bd-97bb-890c044b093b.jsonld) record has a `dct:license` field (a `LicenseDocument` labelled “…Datenlizenz by-2-0”).|
+|R1.2|~|Original data from the primary publisher (Statistisches Bundesamt), not a copy. The downloaded CSV-file has a "Stand" timestamp (02.11.2026). [The record's provenance text](https://gdk.gdi-de.org/gdi-de/srv/eng/csw?Service=CSW&version=2.0.2&Request=GetRecords&resultType=results&elementSetName=full&outputFormat=application/xml&OutputSchema=http://www.isotc211.org/2005/gmd&typeNames=csw:Record&startPosition=1&maxRecords=1&typeNames=csw:Record&elementSetName=full&ConstraintLanguage=CQL_TEXT&constraint_language_version=1.1.0&constraint=csw:ResourceIdentifier=%27https://registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000%27) only says that Destatis checks the data and gives no guarantee. The file has no revision history.|
+|R1.3|✓|The metadata is a [DCAT distribution record](https://data.europa.eu/api/hub/repo/distributions/fd24c79f-ff13-43bd-97bb-890c044b093b.jsonld) with INSPIRE code lists (`accessRights`), and the dataset record [states](https://gdk.gdi-de.org/gdi-de/srv/eng/csw?Service=CSW&version=2.0.2&Request=GetRecords&resultType=results&elementSetName=full&outputFormat=application/xml&OutputSchema=http://www.isotc211.org/2005/gmd&typeNames=csw:Record&startPosition=1&maxRecords=1&typeNames=csw:Record&elementSetName=full&ConstraintLanguage=CQL_TEXT&constraint_language_version=1.1.0&constraint=csw:ResourceIdentifier=%27https://registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000%27) conformance to Regulation (EU) No 1089/2010 (INSPIRE)|
+
+The chosen dataset is **open**: the licence dl-de/by-2-0 allows free reuse and modification with attribution, and the data is free to download as CSV. It is also **FAIR, but with limitations**. Although the dataset has persistent identifiers, a catalogue record, open access and a licence in the metadata, the downloaded CSV-file has no ISO 8601 dates or ISO 3166 codes, no data dictionary and no links to sources.
+
+3 things to improve for milestone 2:
+- Publish a dataset with an identifier
+- Use standard codes: ISO 8601 dates, ISO 3166 country codes, if it is relevant for a final dataset
+- Provide all the documentation including data dictionary
