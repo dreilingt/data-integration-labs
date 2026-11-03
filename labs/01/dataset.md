@@ -93,9 +93,9 @@ The dataset contains *no personal data*. It is a monthly national price index, a
 
 | Principle | Rating | Evidence |
 |---|---|---|
-| F1 | ~ | A stable URL, and table code `61111-0004`, but no DOI. The values are updated under the same table URL, with no version identifier. Also two identifiers assigned in the catalogues: registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000 (GDI-DE) and data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000|
+| F1 | ~ | A stable URL, and table code `61111-0004`, but no DOI. The values are updated under the same table URL, with no version identifier. Also two identifiers assigned in the catalogues: [GDI-DE](https://registry.gdi-de.org/id/de.bund.destatis/DE-30303036-3131-4031-312d-303030340000) and [data.europa.eu](http://data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000)|
 | F2 | ~ | The dataset has a title, classification, unit (Verbraucherpreisindex (2020=100)), copyright line and "Stand" date, but has no description text and no keywords |
-| F4 | ✓ | Listed on data.europa.eu under data.europa.eu/88u/dataset/30303036-3131-4031-312d-303030340000, harvested from the GDI-DE catalogue. Also searchable by table code `61111-0004` in GENESIS-Online itself |
+| F4 | ✓ | Listed on [data.europa.eu](https://data.europa.eu/data/datasets/30303036-3131-4031-312d-303030340000?locale=en), harvested from the GDI-DE catalogue. Also searchable by table code `61111-0004` in GENESIS-Online itself |
 | A1 | ✓ | Datasets from [GENESIS-Online](https://www.destatis.de/EN/Service/OpenData/api-webservice.html) "can be used free of charge and without registering", and all users get the same data. Tables can be both viewed by using the web interface and be downloaded from there |
 | I1 | ✓ | CSV, UTF-8. Destatis also offers other formats, such as XLSX and CSV (Flat) |
 | I2, I3 | ~ | Categories use a classification code (based on COICOP 2018, 2-5-digit hierarchy). Dates are German month names plus a year (Januar, 2015), not ISO 8601. The area is set in the text form in the title of the dataset ("Deutschland"), ISO 3166 code is not used. There are no links to related data or sources inside the file |
