@@ -135,7 +135,7 @@ Both sources contain a time dimension. The shared key will be the year and month
 
 The Wikimedia data will be requested with monthly granularity. The month will be converted to ISO 8601 format (`YYYY-MM`) to match the Destatis data.
 
-**Important**: The common observation period starts in July 2015 because the Wikimedia Pageviews API provides data only from 1 July 2015. Therefore the first six months of the Destatis dataset (January–June 2015) will be excluded from the joined dataset.
+**Important**: The common observation period starts in July 2015 because the Wikimedia Pageviews API provides data only from 1 July 2015. Therefore the first six months of the Destatis dataset (January-June 2015) will be excluded from the joined dataset.
 
 ### Granularity
 
