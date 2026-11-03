@@ -113,7 +113,7 @@ The chosen dataset is **open**: the licence dl-de/by-2-0 allows free reuse and m
 
 ## What to combine the chosen dataset with
 
-**Second source: [Wikimedia Pageviews API](https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/documentation/)** – pageview statistics for individual Wikipedia articles
+**Second source: [Wikimedia Pageviews API](https://doc.wikimedia.org/generated-data-platform/aqs/analytics-api/)** – pageview statistics for individual Wikipedia articles
 
 The API provides the number of views for individual Wikipedia articles over time. I plan to use the German Wikipedia articles (e.g. "Konzert", "Kino", "Theater", "Zirkus") as an indicator of public online attention to different cultural activities.
 
