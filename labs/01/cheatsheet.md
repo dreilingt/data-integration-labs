@@ -50,7 +50,7 @@ second line after a forced break.
 ### 1.3. Italic, bold and both (CommonMark)
 One asterisk makes *italic*, two make **bold**, three make ***both***.
 
-### TO BE CHECKED 1.4. Strikethrough
+### 1.4. Strikethrough (GitHub)
 Two tildes on each side cross text out.\
 Example:\
 ~~no longer true~~
