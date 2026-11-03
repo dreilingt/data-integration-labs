@@ -21,7 +21,7 @@ The repository has a `LICENSE` file, so a machine can read the licence type dire
 `https://api.github.com/repos/dreilingt/data-integration-labs` -> `"spdx_id": "MIT"`\
 My `LICENSE` file comes from GitHub's MIT template, so GitHub matches it and reports `MIT`.
 
-`https://api.github.com/repos/owid/co2-data` -> not found via search for "spdx_id", but found `"license": null`
+`https://api.github.com/repos/owid/co2-data` -> `"license": null`\
 GitHub finds no licence file, so there is no `spdx_id` to read. the licence is mentioned only in the [README](https://github.com/owid/co2-data/blob/master/README.md), which people understand but machines do not.
 
 ### 3. Community files 
