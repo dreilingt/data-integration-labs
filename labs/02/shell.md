@@ -88,7 +88,7 @@ Search for the sleeping process in the second window:
 ```bash
 <user>@DR-XMG UCRT64 ~/Downloads
 $ ps -ef | grep sleep
-   tndre     934     912 cons0    20:13:22 sleep 600
+   <user>     934     912 cons0    20:13:22 sleep 600
 ```
 Here `ps -ef | grep sleep` command displayed only one process. It can list two processes because `grep sleep` is also a running process. Its command line contains the word `sleep`, so it can find itself in the search results. However, in my Git Bash environment only the sleep process was displayed.
 
