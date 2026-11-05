@@ -69,3 +69,33 @@ $ which curl
 `git` is installed in: `/ucrt64/bin/git` and git version is: **2.56.0.windows.4**
 
 ### 4. How full is your disk?
+How much space is left on it: **722 GB**
+```bash
+<user>@DR-XMG UCRT64 ~/Downloads
+$ df -h
+Filesystem            Size  Used Avail Use% Mounted on
+C:/Program Files/Git  931G  210G  722G  23% /
+G:                     15G  201M   15G   2% /g
+```
+How much space do my downloads take up: **8.2 GB**
+```bash
+<user>@DR-XMG UCRT64 ~/Downloads
+$ du -sh ~/Downloads
+8.2G    /c/Users/<user>/Downloads
+```
+### 5. Stop a runaway process
+Search for the sleeping process in the second window:
+```bash
+<user>@DR-XMG UCRT64 ~/Downloads
+$ ps aux | grep sleep
+     1592    1581    1592      15312  cons1     197609 16:16:28 /usr/bin/sleep
+```
+Here `ps aux | grep sleep` command displayed only one process. It can list two processes because `grep sleep` is also a running process. Its command line contains the word `sleep`, so it can find itself in the search results. However, in my Git Bash environment only the sleep process was displayed.
+
+The first terminal after 'killing' the `sleep` command:
+<user>@DR-XMG UCRT64 ~
+$ sleep 600
+Terminated                 sleep 600
+
+<user>@DR-XMG UCRT64 ~
+$ pwddsdadakill 1592
