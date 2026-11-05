@@ -93,9 +93,11 @@ $ ps aux | grep sleep
 Here `ps aux | grep sleep` command displayed only one process. It can list two processes because `grep sleep` is also a running process. Its command line contains the word `sleep`, so it can find itself in the search results. However, in my Git Bash environment only the sleep process was displayed.
 
 The first terminal after 'killing' the `sleep` command:
+```bash
 <user>@DR-XMG UCRT64 ~
 $ sleep 600
 Terminated                 sleep 600
 
 <user>@DR-XMG UCRT64 ~
 $ pwddsdadakill 1592
+```
