@@ -87,17 +87,14 @@ $ du -sh ~/Downloads
 Search for the sleeping process in the second window:
 ```bash
 <user>@DR-XMG UCRT64 ~/Downloads
-$ ps aux | grep sleep
-     1592    1581    1592      15312  cons1     197609 16:16:28 /usr/bin/sleep
+$ ps -ef | grep sleep
+   tndre     934     912 cons0    20:13:22 sleep 600
 ```
-Here `ps aux | grep sleep` command displayed only one process. It can list two processes because `grep sleep` is also a running process. Its command line contains the word `sleep`, so it can find itself in the search results. However, in my Git Bash environment only the sleep process was displayed.
+Here `ps -ef | grep sleep` command displayed only one process. It can list two processes because `grep sleep` is also a running process. Its command line contains the word `sleep`, so it can find itself in the search results. However, in my Git Bash environment only the sleep process was displayed.
 
 The first terminal after 'killing' the `sleep` command:
 ```bash
 <user>@DR-XMG UCRT64 ~
 $ sleep 600
 Terminated                 sleep 600
-
-<user>@DR-XMG UCRT64 ~
-$ pwddsdadakill 1592
 ```
