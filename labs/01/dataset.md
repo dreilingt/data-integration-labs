@@ -33,6 +33,7 @@ Received:\
 | Granularity | Monthly price index (2020 = 100). Concerts are not separated from cinema, theatre and circus |
 | Last update | The file has no export timestamp, but the last update can be checked on the [dataset page](https://genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0004). Latest value: Sep 2026 |
 | Licence | Datenlizenz Deutschland – Namensnennung – Version 2.0 (dl-de/by-2-0), [stated](https://www.destatis.de/DE/Service/Impressum/copyright-genesis-online.html) by Destatis for GENESIS-Online |
+
 \* *Destatis allows to select a period between 1991 and 2026*
 
 ### 2. Stars (5-star scheme)
@@ -154,15 +155,23 @@ The Destatis dataset is published under the **Datenlizenz Deutschland – Namens
 The datasets can be combined and the resulting dataset can be published, provided that the Destatis attribution requirements are followed. This includes naming Destatis as the source, linking to the original dataset and licence, and indicating any modifications made to the original data. The Wikimedia data is available under CC0 and does not require attribution.
 
 ## Next steps: from two downloads to the joined table
-
-1. Download the Destatis flat CSV and keep it unchanged in `data/raw/`.
-2. Select the series `CC13-09421` and clean it: replace the placeholder `...` with an empty value, convert the decimal comma to a number.
-3. Build the date `YYYY-MM` from the year (`time`) and the month code (`MONAT01` → `01`).
-4. Request the monthly pageviews of the German Wikipedia articles "Konzert", "Kino", "Theater" and "Zirkus" from the Wikimedia API and keep the JSON in `data/raw/`.
-5. Extract the timestamp and the number of views, convert the timestamp to `YYYY-MM` and give each article its own column.
-6. Check for missing months and align the date ranges (Jan 2017–Sep 2026).
-7. Join both tables on the column `date`.
-8. Save the result in `data/processed/` with a data dictionary and the source, retrieval date and licence of each column.
-
+```mermaid
+flowchart TD
+    subgraph A["Source 1: Destatis (table 61111-0004)"]
+        A1["Download the flat CSV"] --> A2["Save unchanged in data/raw/"]
+        A2 --> A3["Select the series CC13-09421"]
+        A3 --> A4["Replace the placeholder ... with an empty value<br/>and convert the decimal comma to a number"]
+        A4 --> A5["Build the date YYYY-MM from time and month code"]
+    end
+    subgraph B["Source 2: Wikimedia Pageviews API"]
+        B1["Request monthly views for<br/>Konzert, Kino, Theater, Zirkus"] --> B2["Save the JSON in data/raw/"]
+        B2 --> B3["Extract timestamp and views"]
+        B3 --> B4["Convert the timestamp to YYYY-MM<br/>and put each article in its own column"]
+    end
+    A5 --> C["Check for missing months<br/>and align the date ranges"]
+    B4 --> C
+    C --> D["Join on the column date"]
+    D --> E["Save the joined table in data/processed/<br/>and describe it in a data dictionary"]
+```
 ### Verdict
 Yes, I would build the project on this dataset: it is open (dl-de/by-2-0), it has monthly values for the same period as the Wikimedia pageviews, and both sources can be joined on the month (`YYYY-MM`). The biggest risk is validity: the Destatis series is a price index and the pageviews measure interest in an encyclopedia article, so neither measures how many people actually go to concerts or cinemas. In addition, the German-language Wikipedia is also read outside Germany, and the pandemic months of 2020-2021, which are flagged `()` as statistically uncertain in the Destatis file, may distort the relationship.
