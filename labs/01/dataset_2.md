@@ -82,7 +82,7 @@ The dataset contains *no personal data*. It is a monthly national price index, a
 | R1 | ✗ | No column dictionary. The two `%` measures are not identified in any column. |
 | R1.1 | ✓ | Clear licence on the Destatis page. The CSV itself has no licence information. |
 | R1.2 | ~ | Original data from the primary publisher (Statistisches Bundesamt), not a copy. The methodological notes describe who collects the data and how (price collection by the statistical offices around the middle of the month, quality checks). The flat CSV file has no timestamp or version, so the retrieval date must be recorded by the user. |
-**| R1.3 | ? | To be added |**
+| R1.3 | ? | **To be added** |
 
 The chosen dataset is **open**: the licence dl-de/by-2-0 allows free reuse and modification with attribution, and the data is free to download as CSV. It is also **FAIR, but with limitations**. It has a stable URL, open access and a licence, but no DOI, no version, no ISO dates, no data dictionary, and the measures are only distinguishable by row order.
 
