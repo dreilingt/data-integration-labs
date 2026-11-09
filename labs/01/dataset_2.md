@@ -108,7 +108,7 @@ Both sources contain a time dimension. The shared key will be the year and month
 
 Both tables come from the same statistic (`61111`) and use the same coding of time, month and area, so no format conversion between them is needed. The Destatis month code is turned into a number (the last two digits of `MONAT01`), and the date is built as `YYYY-MM` (ISO 8601) from `time` and this number.
 
-Table 61111-0002 has three rows per month (index, year-on-year change, month-on-month change). For the further analysis only the first value for each month is valid.
+Table 61111-0002 has three rows per month (index, year-on-year change, month-on-month change). For the join, the index (first row of each month) is used; the two rates are kept as separate columns after the pivot.
 
 **Derived column for the joined table (own calculation)**:\
  `culture_rel` = `culture_index` / `cpi_index` × 100: price of cultural events relative to the overall price level.
