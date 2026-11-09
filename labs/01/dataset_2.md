@@ -68,3 +68,77 @@ Statistics per measure, over the months with a numeric value (Jan 2017–Sep 202
 
 ### 6. People
 The dataset contains *no personal data*. It is a monthly national price index, aggregated over all of Germany, with no individuals, households or small groups, therefore nothing needs to be minimised for this dataset.
+
+## Dataset Review with the FAIR principles
+ 
+| Principle | Rating | Evidence |
+|---|---|---|
+| F1 | ~ | Stable URL and table code `61111-0002`, no DOI. The CSV contains only `statistics_code` = `61111`, and the table number appears only in the file name and on the website. |
+| F2 | ~ | The table page has a title, unit and "Stand" date. The CSV repeats `statistics_code` and `statistics_label` in each row, but has no title line, copyright line or date. |
+| F4 | ~ | Searchable in GENESIS-Online by table code. |
+| A1 | ✓ |  Datasets from [GENESIS-Online](https://www.destatis.de/EN/Service/OpenData/api-webservice.html) "can be used free of charge and without registering", and all users get the same data. Tables can be both viewed in the web interface and downloaded from there |
+| I1 | ✓ | CSV, UTF-8 with BOM, semicolon, decimal comma, one header row, one observation per row. |
+| I2, I3 | ✗ | The month is a code (`MONAT02`) with a German label, not ISO 8601. The area is the code `DG`, not ISO 3166. Placeholders are text. No links to other data. |
+| R1 | ✗ | No column dictionary. The two `%` measures are not identified in any column. |
+| R1.1 | ✓ | Clear licence on the Destatis page. The CSV itself has no licence information. |
+| R1.2 | ~ | Original data from the primary publisher (Statistisches Bundesamt), not a copy. The methodological notes describe who collects the data and how (price collection by the statistical offices around the middle of the month, quality checks). The flat CSV file has no timestamp or version, so the retrieval date must be recorded by the user. |
+**| R1.3 | ? | To be added |**
+
+The chosen dataset is **open**: the licence dl-de/by-2-0 allows free reuse and modification with attribution, and the data is free to download as CSV. It is also **FAIR, but with limitations**. It has a stable URL, open access and a licence, but no DOI, no version, no ISO dates, no data dictionary, and the measures are only distinguishable by row order.
+
+3 things to improve for milestone 2:
+- Publish the final table with a persistent identifier and a version.
+- Use ISO 8601 dates and add a `LICENSE`/metadata file with the Destatis licence.
+- Write a data dictionary for every column, and document in the script how `measure` is derived and how the retrieval date is recorded.
+
+## What to combine the chosen dataset with
+ 
+**Second source: table [61111-0004](https://genesis.destatis.de/datenbank/online/statistic/61111/table/61111-0004), series CC13-09421 "Besuch von Kino, Theater, Konzert, Zirkus u.Ä."**
+ 
+Both tables belong to the same statistic (`61111`), use the same time, month and area coding, and the same base year (2020 = 100). The headline index is the parent of the CC13-09421 series: CC13-09421 is one of its components. In 0004 the nesting is CC13-09 > CC13-094 > CC13-0942 > CC13-09421. This means the two series are not independent, which matters for the analysis (see the verdict).
+ 
+### Shared key 
+
+Both sources contain a time dimension. The shared key will be the year and month.
+
+| Source | Original date format | After cleaning |
+|---|---|---|
+| Destatis VPI, headline index (table 61111-0002) | Year in `time` (`2017`) and month as code in `1_variable_attribute_code` (`MONAT01`, label `Januar`) | 2017-01 |
+| Destatis VPI, series CC13-09421 (table 61111-0004) | Year in `time` (`2017`) and month as code in `1_variable_attribute_code` (`MONAT01`, label `Januar`) | 2017-01 |
+
+Both tables come from the same statistic (`61111`) and use the same coding of time, month and area, so no format conversion between them is needed. The Destatis month code is turned into a number (the last two digits of `MONAT01`), and the date is built as `YYYY-MM` (ISO 8601) from `time` and this number.
+
+Table 61111-0002 has three rows per month (index, year-on-year change, month-on-month change). For the further analysis only the first value for each month is valid.
+
+**Derived column for the joined table (own calculation)**:\
+ `culture_rel` = `culture_index` / `cpi_index` × 100: price of cultural events relative to the overall price level.
+
+### Granularity
+Both tables are monthly and national, so there is no aggregation step.
+ 
+### Research questions
+1. Do prices of cinema, theatre, concert and circus visits move differently from overall consumer prices in Germany (level `culture_rel` and year-on-year rates)?
+
+### Licences
+Both tables are published by Destatis under dl-de/by-2-0, so the combined table can be published with one attribution block naming both tables, the licence link, and a note "own calculation" for derived columns.
+```mermaid
+flowchart TD
+    subgraph A["Table 61111-0002"]
+        A1["Save the flat CSV unchanged in data/raw/"] --> A2["Add measure from row order inside a month:<br/>index, yoy_pct, mom_pct"]
+        A2 --> A3["Placeholder ... to empty value,<br/>- to 0, decimal comma to number"]
+        A3 --> A4["Build date YYYY-MM, pivot to one row per month"]
+    end
+    subgraph B["Table 61111-0004 (CC13-09421)"]
+        B1["Save the flat CSV unchanged in data/raw/"] --> B2["Select series CC13-09421"]
+        B2 --> B3["... to empty value, decimal comma to number,<br/>build date YYYY-MM"]
+    end
+    A4 --> C["Check: same months, same unit 2020=100,<br/>one row per date in both"]
+    B3 --> C
+    C --> D["Join on date (1:1)"]
+    D --> E["Add culture_rel,<br/>save in data/processed/, write data dictionary"]
+```
+### Verdict
+Yes, I would build the project on this pair: both tables are open (dl-de/by-2-0), come from the same statistic with identical coding of time, month and area, and join 1:1 on `YYYY-MM`. The main risks:
+- **The measure column is not in the file.** It depends on row order, so the order check against the index should be part of the script.
+- **Part-whole relation.** CC13-09421 is a component of the general index, so the two series are not independent and some co-movement is built in. The analysis should focus on how the culture series differs from the headline index (relative price `culture_rel`, timing of changes), and the results should be read with this limitation in mind.
+- **Pandemic months.** The culture series has `()` flags in Apr–Jun 2020 and Nov 2020–Jun 2021, which may distort the comparison.
