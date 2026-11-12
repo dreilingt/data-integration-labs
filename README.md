@@ -14,6 +14,7 @@ This repository collects my lab work for the Data Integration course.
 |-----|-------|--------|
 | 01 | Open Data, Data Profile | [labs/01/](labs/01/) |
 | 02 | Command Line Interface | [labs/02/](labs/02/) |
+| 03 | Git | [labs/03/](labs/03/) |
 
 ## AI usage
 
