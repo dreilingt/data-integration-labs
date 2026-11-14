@@ -2,6 +2,8 @@
 # get_data.sh: downloads the raw data of our project into data/raw/
 # and prints a first look at it (size, type, lines, columns, first lines).
 # Usage: run from this folder: ./get_data.sh
+# Every run downloads the file again and appends one line to
+# data/raw/SOURCES.txt (date, URL, target file).
 # Data: "Fahrrad Verkehrsdaten Köln 2022" by Amt für nachhaltige
 # Mobilitätsentwicklung (Stadt Köln), Offene Daten Köln,
 # https://www.offenedaten-koeln.de/dataset/fahrrad-verkehrsdaten-koeln-2022,
