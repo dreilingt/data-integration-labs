@@ -39,3 +39,5 @@ head -n 3 "$TARGET"
 # holds the month name (17 stations + 1). 
 # ls -lh shows 1.9K because it rounds 1.82 KB up.
 # Type: ISO-8859 text with CRLF line endings, so the file is not UTF-8.
+
+echo "== Checksum"; git hash-object --no-filters "$TARGET"
