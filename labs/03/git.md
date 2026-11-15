@@ -186,3 +186,116 @@ data/  get_data.sh*  git.md  git-graph.png  graph.md  README.md
 The files which were saved on the PC, but not commited. 
 
 ### 2. Staged by accident
+```bash
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ echo "test line" > notes.txt
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git add .
+warning: in the working copy of 'labs/03/notes.txt', LF will be replaced by CRLF the next time Git touches it
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   git.md
+        new file:   notes.txt
+
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git restore --staged notes.txt
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   git.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        notes.txt
+
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ ls notes.txt
+notes.txt
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ rm notes.txt
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   git.md
+```
+Even though after `git restore --staged notes.txt` the file was taken ouf og the staging area, it still stayed on disk, and was deleted only with `rm` command.
+
+### 3. A typo in the message
+```bash
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git commit -m "Add a note to the READMEE"
+[main 8c5f464] Add a note to the READMEE
+ 2 files changed, 40 insertions(+), 2 deletions(-)
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git log --oneline -1
+8c5f464 (HEAD -> main) Add a note to the READMEE
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git commit --amend -m "Add a note to the README and add git.md"
+[main 19434e3] Add a note to the README and add git.md
+ Date: Sun Nov 15 18:19:57 2026 +0100
+ 2 files changed, 40 insertions(+), 2 deletions(-)
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git log --oneline -1
+19434e3 (HEAD -> main) Add a note to the README and add git.md
+```
+*Compare the hash before and after: why did it change, and why is `--amend` safe only before you push?* The hash changed from `8c5f464` to `19434e3`. A commit hash is generated from the commit's contents and metadata, so changing the message changes the hash. `git commit --amend` is safe only if the commit is not pushed yet, because it rewrites history.
+
+### 4. A bad commit, already pushed
+```bash
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ ./get_data.sh        
+curl: (22) The requested URL returned error: 404
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git revert --no-edit HEAD
+[main 3d30b0c] Revert "Change a year in download URL"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ ./get_data.sh
+== Checksum
+c8d3ec47b9534d757ef565f83d2d91247cc9ffa6
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git push
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 503 bytes | 503.00 KiB/s, done.
+Total 5 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/dreilingt/data-integration-labs.git
+   bb13ec2..3d30b0c  main -> main
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git log --oneline -3
+3d30b0c (HEAD -> main, origin/main, origin/HEAD) Revert "Change a year in download URL"
+bb13ec2 Change a year in download URL
+19434e3 Add a note to the README and add git.md
+```
+*What does `git log --oneline -3` show now? Why is `git revert` the right command here, and not `git reset --hard HEAD~1`?*
+`git revert HEAD` added a new commit that undoes the wrong one, so the history stays intact and the broken commit is still visible. It is the right command here, because the commit with a broken link was already pushed. `git reset --hard HEAD~1` would rewrite history that others may already have.
