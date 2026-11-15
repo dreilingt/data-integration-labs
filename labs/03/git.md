@@ -149,3 +149,40 @@ The `.gitignore` is a small text file that holds a rule. If it is committed, eve
 2. *What does a teammate need to get my raw data?*
 
 They clone the repository, open a terminal in `labs/03` and run `./get_data.sh`, as described in the README. The script downloads the file from the source, creates `data/raw/` and prints a checksum.
+
+## Undo (Task 4)
+### 1. Deleted by accident
+```bash
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ rm get_data.sh
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        deleted:    get_data.sh
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git restore get_data.sh
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+<user>@DR-XMG UCRT64 ~/data-integration-labs/labs/03 (main)
+$ ls
+data/  get_data.sh*  git.md  git-graph.png  graph.md  README.md
+```
+*Which files could Git not have brought back?*\
+The files which were saved on the PC, but not commited. 
+
+### 2. Staged by accident
