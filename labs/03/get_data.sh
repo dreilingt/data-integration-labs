@@ -11,7 +11,7 @@
 # http://dcat-ap.de/def/licenses/dl-zero-de/2.0
 
 # 2. Two variables: for URL and target file
-URL="https://www.offenedaten-koeln.de/sites/default/files/distribution/Radverkehr%2520f%25C3%25BCr%2520Offene%2520Daten%2520K%25C3%25B6ln%25202150.csv"
+URL="https://www.offenedaten-koeln.de/sites/default/files/distribution/Radverkehr%2520f%25C3%25BCr%2520Offene%2520Daten%2520K%25C3%25B6ln%25202022.csv"
 TARGET="data/raw/koeln_2022.csv"
 
 # 3. Create a folder and download
