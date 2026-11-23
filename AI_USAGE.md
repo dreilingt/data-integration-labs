@@ -31,3 +31,14 @@
 **Accepted:** explanations, commands and drafts of my markdown-files.\
 **Changed / rejected:** the final wording of my answers are written by myself. Additionally, I replaced a long shell loop by two simple `git show ... | sed -n 2p` commands.\
 **Checked:** every hash, count and date comes from my own command output.
+
+## 23.11.2026 Lab 4, Task 1
+
+### 1. Tool and model: GitHub Copilot in VS Code (Copilot Fusion GPT 5.6 Luna)
+**How I used it:** According to the Task 1 guide. Prompts, decisions etc. were based on it.
+
+### 2. Tool and model: Claude (Anthropic), Claude Sonnet 5.5.
+**Prompts** (summarised): General questions about the interface, how to work with `settings.json`, and for a draft of the `setup.md` table.\
+**Accepted:** The Git and VS Code commands, as well as the structure of the `setup.md` table.\
+**Changed / rejected:** My own answers were retained. Claude only suggested wording improvements. I edited its suggestions to keep the text concise but informative.\
+**Checked:** I ran every command myself and looked at the results.
