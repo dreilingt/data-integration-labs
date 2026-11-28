@@ -42,3 +42,6 @@
 **Accepted:** The Git and VS Code commands, as well as the structure of the `setup.md` table.\
 **Changed / rejected:** My own answers were retained. Claude only suggested wording improvements. I edited its suggestions to keep the text concise but informative.\
 **Checked:** I ran every command myself and looked at the results.
+
+## 23.11.2026 - 28.11.2026 Lab 4, Task 2-7
+Available in the shared [co2-pipeline](https://github.com/dreilingt/co2-pipeline.git) repository in [AI_USAGE.md](https://github.com/dreilingt/co2-pipeline/blob/main/AI_USAGE.md)
