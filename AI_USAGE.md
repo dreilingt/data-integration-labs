@@ -45,3 +45,6 @@
 
 ## 23.11.2026 - 28.11.2026 Lab 4, Task 2-7
 Available in the shared [co2-pipeline](https://github.com/dreilingt/co2-pipeline.git) repository in [AI_USAGE.md](https://github.com/dreilingt/co2-pipeline/blob/main/AI_USAGE.md)
+
+## 28.11.2026 Lab 4, Task 8
+Available in [our team's repository](https://github.com/Esmaa21/Data-Integration-3.3.git) in [AI_USAGE.md](https://github.com/Esmaa21/Data-Integration-3.3/blob/main/AI_USAGE.md)
